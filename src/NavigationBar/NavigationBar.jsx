@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import IntroExpandedContext from "../Context/IntroExpandedContext"
 import { Link } from "react-router-dom";
 import { Ripple } from "@rmwc/ripple"
@@ -13,11 +13,14 @@ const NavigationBar = () => {
     const [pageExpanded, setPageExpanded] = useState(true);
     const IntroExpanded = useContext(IntroExpandedContext);
 
-    for (let i = 0; i < IntroExpanded.pagesExpanded.length; i++) {
-        if (IntroExpanded.pagesExpanded[i] === false) {
-            setPageExpanded(false);
+    useEffect(() => {
+        for (let i = 0; i < IntroExpanded.pagesExpanded.length; i++) {
+            if (IntroExpanded.pagesExpanded[i] === false) {
+                    setPageExpanded(false);
+            }
         }
-    }
+    }, [pageExpanded]);
+
 
     return (
         <React.Fragment>

@@ -17,18 +17,18 @@ import './BFS.css'
 const BFS = () => {
     const IntroExpanded = useContext(IntroExpandedContext);
 
-    // const isOpened = IntroExpanded.pagesExpanded[0];
-    // const setIsOpened = IntroExpanded.setExpanded;
+    const isOpenedGlobal = IntroExpanded.pagesExpanded[0];
+    const setIsOpenedGlobal = IntroExpanded.setExpanded;
 
-    const [isOpened, setIsOpened] = useState(true);
-    const [collapsedTitleState, setCollapsedTitleState] = useState("");
+    const [isOpened, setIsOpened] = useState(isOpenedGlobal);
+    const [collapsedTitleState, setCollapsedTitleState] = useState(isOpenedGlobal ? "" : " intro-section-collapsed");
 
     const collapseHandler = () => {
         setIsOpened(prevState => {
             return !prevState;
         });
 
-        IntroExpanded.setExpanded(0);
+        setIsOpenedGlobal(0);
 
         if (isOpened) {
             const timer = setTimeout(() => {

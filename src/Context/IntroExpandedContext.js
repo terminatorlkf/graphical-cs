@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 const IntroExpandedContext = createContext({
     pagesExpanded: [],
-    setExpanded: (index, value) => { }
+    setExpanded: (index) => { }
 });
 
 export default IntroExpandedContext;

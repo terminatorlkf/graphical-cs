@@ -15,6 +15,7 @@ function App() {
   const [pagesExpanded, setPagesExpanded] = useState([true, true, true, true, true]);
 
   const setExpanded = useCallback((index) => {
+    console.log("haha");
     setPagesExpanded(prevState => {
       prevState[index] = !prevState[index];
       return prevState;
